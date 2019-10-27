@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  pool: 5
+
+production:
+  <<: *default
+  database: <%= ENV['DATABASE_URL'] %>
+
+development:
+  <<: *default
+  database: movie_booking_development
+
+test:
+  <<: *default
+  database: movie_booking_test
